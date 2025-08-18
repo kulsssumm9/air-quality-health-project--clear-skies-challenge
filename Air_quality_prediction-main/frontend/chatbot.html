@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AirHealth Home</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="logo">AirHealth</div>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Risk-Assessment</a></li>
+      <li><a href="chatbot.html" class="active">Home</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="#" id="logout-btn">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container content-wrapper home-hero">
+    <h1 class="page-title home-title">Welcome to AirHealth Risk!</h1>
+    <div class="intro-card home-card">
+      Helping you understand and manage your health risks from air pollution.
+    </div>
+
+    <!-- AQI Widget -->
+    <div class="health-card home-card" id="aqi-section">
+      <h2>Current Air Quality</h2>
+      <div class="aqi-current">
+        <ul>
+          <li><strong>Location Detected:</strong> <span id="home-location">Detecting…</span></li>
+          <li><strong>Air Quality Index (AQI):</strong> <span id="home-aqi">--</span> <span id="home-aqi-desc"></span></li>
+          <li><strong>PM2.5:</strong> <span id="home-pm25">--</span> µg/m³</li>
+          <li><strong>PM10:</strong> <span id="home-pm10">--</span> µg/m³</li>
+          <li><strong>Main Pollutants:</strong> <span id="home-main-pollutants">--</span></li>
+          <li><strong>Last updated:</strong> <span id="home-updated">--</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Additional Info Cards -->
+    <div class="health-card home-card">
+      <h2>Why Check Your Air Quality Risk?</h2>
+      <blockquote style="border-left:3px solid #3E92CC;font-style:italic;margin:1rem 0;padding-left:1.3rem;color:#336;">
+        “Air pollution contributes to over 7 million premature deaths globally every year.”
+      </blockquote>
+      <p>
+        Even short-term exposure to poor air can affect your breathing, trigger asthma, and increase your risk of heart problems, especially in children, seniors, and those with existing conditions.
+      </p>
+    </div>
+
+    <div class="health-card home-card">
+      <h2>How Our Assessment Works</h2>
+      <ul class="custom-list">
+        <li>Answer a few simple questions about your health and lifestyle.</li>
+        <li>Our tool analyzes your exposure, health status, and local pollution levels.</li>
+        <li>Get a clear risk score and personalized advice for reducing your risk.</li>
+      </ul>
+      <a href="dashboard.html" class="btn primary" style="margin-top:.7rem;">Start Assessment</a>
+    </div>
+
+    <div class="health-card home-card">
+      <h2>Prevention Tips</h2>
+      <ul class="custom-list">
+        <li>Limit outdoor activity during high AQI days.</li>
+        <li>Use masks or air purifiers indoors.</li>
+        <li>Keep windows closed when pollution is high.</li>
+        <li>Monitor symptoms like cough or breathlessness and seek medical advice if they worsen.</li>
+      </ul>
+    </div>
+
+    <div class="health-card home-card">
+      <h2>Your Data is Safe</h2>
+      <p>We take your privacy seriously. Your personal information is encrypted and never shared.</p>
+    </div>
+
+    <div class="health-card home-card fast-facts">
+      <h2>Fast Facts</h2>
+      <ul class="custom-list">
+        <li>Children and the elderly are most at risk from poor air quality.</li>
+        <li>Smoking and outdoor jobs increase air pollution exposure.</li>
+        <li>Simple changes can reduce your risk by up to 50%.</li>
+      </ul>
+    </div>
+
+    <div class="health-card home-card contact-help">
+      <h2>Have Questions?</h2>
+      <p>See our <a href="#">FAQ</a>, <a href="#">Health Blog</a>, or <a href="#">contact our team</a> for support!</p>
+    </div>
+  </div>
+
+  <!-- Include the chatbot.js script -->
+  <script src="assets/js/chatbot.js"></script>
+  
+<!-- Add this to your HTML page, preferably before the closing </body> tag -->
+  <script src="https://testmyprompt.com/widget/6894cb7080ccd6898d6c0ec3/widget.js?widgetId=6894cb7080ccd6898d6c0ec3"></script>
+  
+</body>
+</html>

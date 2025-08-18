@@ -1,0 +1,644 @@
+/* ─── THEME & TOKENS ─────────────────────────────────────────────────────────── */
+:root {
+/* Core palette */
+--dark: #0A2342;
+--light: #3E92CC;
+--white: #FFFFFF;
+--gray: #F0F4FF;
+
+/* Extended palette */
+--ink: #0e1726;
+--ink-2: #1b2a41;
+--ink-3: #2b3a55;
+--brand: #1d72b8;
+--brand-2: #1565c0;
+--brand-3: #0e58a3;
+--accent: #60a5fa;
+--success: #4caf50;
+--warning: #ff9800;
+--danger: #f44336;
+
+/* Surfaces */
+--surface: #ffffff;
+--surface-2: #f7f9fc;
+--surface-3: #eef3fb;
+--elev: 0 8px 24px rgba(14, 23, 38, 0.08);
+
+/* Borders & shadows */
+--border: 1px solid rgba(15, 23, 42, 0.08);
+--ring: 0 0 0 4px rgba(29, 114, 184, 0.15);
+
+/* Typography */
+--font-sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+--fs-1: clamp(2rem, 1.6rem + 1.5vw, 2.6rem);
+--fs-2: clamp(1.4rem, 1.2rem + 0.6vw, 1.8rem);
+--fs-3: 1.125rem;
+--fs-body: 1rem;
+
+/* Radius */
+--r-sm: 8px;
+--r-md: 12px;
+--r-lg: 18px;
+--r-xl: 24px;
+
+/* Spacing */
+--sp-1: .5rem;
+--sp-2: .75rem;
+--sp-3: 1rem;
+--sp-4: 1.5rem;
+--sp-5: 2rem;
+
+/* Motion */
+--ease: cubic-bezier(.22, 1, .36, 1);
+--t-fast: .18s;
+--t-med: .3s;
+--t-slow: .5s;
+}
+
+/* ─── RESET & GLOBAL ─────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; scroll-behavior: smooth; }
+
+body {
+font-family: var(--font-sans);
+background: linear-gradient(180deg, var(--surface-2), var(--surface-3));
+color: var(--ink);
+line-height: 1.6;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+img, svg, video { display: block; max-width: 100%; }
+
+/* Nice container */
+.container {
+max-width: 980px;
+margin: var(--sp-5) auto;
+padding: 0 var(--sp-3);
+}
+
+/* ─── LINKS & FOCUS ──────────────────────────────────────────────────────────── */
+a { color: var(--brand-2); text-decoration: none; }
+a:hover { color: var(--brand-3); }
+
+:focus-visible {
+outline: none;
+box-shadow: var(--ring);
+border-radius: var(--r-sm);
+}
+
+/* ─── BUTTONS ───────────────────────────────────────────────────────────────── */
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: .5rem;
+cursor: pointer;
+border: none;
+text-decoration: none;
+transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease), background var(--t-fast);
+will-change: transform;
+user-select: none;
+}
+
+.btn.primary {
+background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+color: var(--white);
+border-radius: var(--r-md);
+padding: .8rem 1.2rem;
+font-size: var(--fs-3);
+font-weight: 600;
+box-shadow: 0 6px 18px rgba(21, 101, 192, 0.25);
+}
+.btn.primary:hover {
+transform: translateY(-2px);
+box-shadow: 0 10px 26px rgba(21, 101, 192, 0.32);
+}
+.btn.primary:active { transform: translateY(0); }
+
+/* Ghost and subtle variants if needed */
+.btn.ghost {
+background: transparent;
+color: var(--brand-2);
+border: var(--border);
+padding: .7rem 1.1rem;
+border-radius: var(--r-md);
+}
+.btn.ghost:hover {
+background: rgba(21, 101, 192, 0.06);
+}
+
+/* ─── NAVBAR ─────────────────────────────────────────────────────────────────── */
+.top-nav {
+position: sticky;
+top: 0;
+z-index: 50;
+background: rgba(10, 35, 66, 0.85);
+backdrop-filter: saturate(140%) blur(10px);
+color: var(--white);
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: .9rem 1.5rem;
+box-shadow: 0 6px 20px rgba(10, 35, 66, 0.25);
+}
+
+.logo {
+font-size: 1.35rem;
+font-weight: 800;
+letter-spacing: .3px;
+}
+
+.nav-links {
+list-style: none;
+display: flex;
+gap: 1rem;
+}
+.nav-links a {
+color: var(--white);
+font-weight: 500;
+padding: .5rem .8rem;
+border-radius: var(--r-sm);
+transition: background-var(--t-fast), color var(--t-fast), transform var(--t-fast);
+}
+.nav-links a:hover { background: rgba(255,255,255,.12); transform: translateY(-1px); }
+.nav-links a.active {
+background: linear-gradient(135deg, var(--light), #7fb7e3);
+color: #081a2f;
+font-weight: 700;
+}
+
+/* ─── CONTENT WRAPPER ───────────────────────────────────────────────────────── */
+.content-wrapper {
+max-width: 880px;
+margin: var(--sp-5) auto;
+background: var(--surface);
+padding: clamp(1.25rem, 1rem + 1.2vw, 2rem);
+border-radius: var(--r-lg);
+box-shadow: var(--elev);
+border: var(--border);
+}
+
+/* ─── TITLES & TYPOGRAPHY ───────────────────────────────────────────────────── */
+.page-title {
+font-size: var(--fs-1);
+font-weight: 800;
+letter-spacing: .2px;
+color: var(--ink);
+margin-bottom: .4rem;
+}
+.intro {
+font-style: normal;
+color: #556276;
+font-size: 1.05rem;
+margin-bottom: 1.25rem;
+}
+
+/* ─── CARDS & SECTIONS ──────────────────────────────────────────────────────── */
+.card, .home-card {
+background: linear-gradient(180deg, #ffffff 0%, #f9fbff 100%);
+padding: 1.25rem 1.25rem;
+border-radius: var(--r-md);
+border: var(--border);
+box-shadow: 0 4px 14px rgba(14, 23, 38, 0.06);
+margin-bottom: 1.1rem;
+}
+.card h2 {
+font-size: 1.15rem;
+margin-bottom: .65rem;
+color: var(--ink-2);
+}
+
+/* ─── FORMS ─────────────────────────────────────────────────────────────────── */
+form label, .auth-form label, .health-card label {
+display: block;
+margin: .6rem 0 .35rem;
+font-size: .94rem;
+color: var(--ink-2);
+font-weight: 600;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=number],
+select, textarea,
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"],
+.auth-form input[type="number"],
+.health-card input[type="number"],
+.health-card select,
+#chat-input {
+width: 100%;
+padding: .7rem .85rem;
+border: 1px solid rgba(15, 23, 42, .12);
+border-radius: 10px;
+font-size: .98rem;
+background: #fcfdff;
+transition: border-color var(--t-fast), box-shadow var(--t-fast), background var(--t-fast);
+}
+
+input:focus, select:focus, textarea:focus, #chat-input:focus {
+border-color: var(--brand-2);
+box-shadow: 0 6px 18px rgba(21, 101, 192, 0.12);
+outline: none;
+background: #fff;
+}
+
+.checkbox-group {
+display: flex;
+gap: .9rem;
+flex-wrap: wrap;
+margin: .4rem 0 .8rem;
+}
+.checkbox-group input { accent-color: var(--brand-2); }
+
+/* ─── CHATBOX ───────────────────────────────────────────────────────────────── */
+#chatbox {
+background: linear-gradient(180deg, #f7faff 0%, #eef5ff 100%);
+border: 1px solid rgba(15, 23, 42, .08);
+padding: 1rem;
+height: 200px;
+overflow-y: auto;
+border-radius: var(--r-md);
+box-shadow: inset 0 1px 0 rgba(255,255,255,.6);
+}
+#send-btn { margin-left: .5rem; }
+
+/* ─── LOGIN PAGE (glassy) ───────────────────────────────────────────────────── */
+.login-page {
+position: relative;
+min-height: 100vh;
+background: radial-gradient(1200px 600px at 10% -10%, #cde6ff 0%, transparent 55%),
+radial-gradient(1000px 600px at 110% 20%, #e7f3ff 0%, transparent 60%),
+var(--dark);
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+}
+.login-background {
+position: absolute; inset: 0;
+background: url('https://source.unsplash.com/featured/?sky,city') no-repeat center/cover;
+opacity: .18;
+filter: blur(6px) saturate(110%);
+transform: scale(1.1);
+}
+.login-wrapper {
+position: relative;
+background: rgba(255,255,255,.85);
+backdrop-filter: blur(10px);
+border-radius: var(--r-xl);
+box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+width: min(420px, 92vw);
+padding: 32px;
+z-index: 1;
+text-align: center;
+border: 1px solid rgba(255,255,255,.45);
+}
+.brand h1 {
+font-family: var(--font-sans);
+font-size: var(--fs-2);
+color: var(--ink);
+margin-bottom: 18px;
+letter-spacing: .2px;
+}
+
+.toggle-switch {
+position: relative;
+display: grid;
+grid-template-columns: 1fr 1fr;
+background: #eef3fb;
+border-radius: 999px;
+margin-bottom: 20px;
+padding: 3px;
+border: var(--border);
+}
+.toggle-btn {
+padding: 10px 0;
+background: transparent;
+border: none;
+font-size: 1rem;
+color: var(--ink-3);
+cursor: pointer;
+transition: color var(--t-fast);
+font-weight: 600;
+border-radius: 999px;
+}
+.toggle-btn.active { color: var(--white); }
+.slider {
+position: absolute;
+width: 50%;
+height: calc(100% - 6px);
+background: linear-gradient(135deg, var(--brand) 0%, var(--brand-2) 100%);
+border-radius: 999px;
+top: 3px; left: 3px;
+transition: left var(--t-med) var(--ease);
+box-shadow: 0 8px 20px rgba(21, 101, 192, .25);
+}
+#signin-toggle.active ~ .slider { left: 3px; }
+#signup-toggle.active ~ .slider { left: calc(50% + 3px); }
+
+.auth-form { display: grid; gap: 12px; text-align: left; }
+.login-page { overflow-y: auto; }
+.login-wrapper { max-height: 90vh; overflow-y: auto; }
+
+/* ─── HEALTH CARDS & RISK STATUS ─────────────────────────────────────────────── */
+.health-card {
+background: linear-gradient(180deg, #f7fbff 0%, #ecf5ff 100%);
+border-radius: var(--r-md);
+padding: 1rem 1.25rem;
+margin-bottom: 1rem;
+box-shadow: 0 6px 18px rgba(14, 23, 38, 0.06);
+border: var(--border);
+}
+.health-card input[type="number"], .health-card select { background: #ffffff; }
+
+.risk-status {
+font-size: 1.15rem;
+font-weight: 800;
+text-align: center;
+padding: .85rem 1rem;
+border-radius: var(--r-md);
+margin-top: .9rem;
+color: white;
+letter-spacing: .4px;
+transition: background-color var(--t-fast), color var(--t-fast), transform var(--t-fast);
+user-select: none;
+}
+.risk-status:hover { transform: translateY(-1px); }
+.status-good { background: linear-gradient(135deg, #43a047, #66bb6a); }
+.status-warning{ background: linear-gradient(135deg, #fb8c00, #ffb74d); }
+.status-danger { background: linear-gradient(135deg, #e53935, #ef5350); }
+
+/* Primary button override inside dashboard */
+button.btn.primary {
+background: linear-gradient(135deg, var(--brand-2), #4aa3ff);
+color: white;
+border: none;
+padding: .85rem 1.25rem;
+border-radius: 10px;
+font-weight: 700;
+font-size: 1rem;
+cursor: pointer;
+transition: background var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
+box-shadow: 0 10px 22px rgba(21, 101, 192, 0.25);
+}
+button.btn.primary:hover {
+background: linear-gradient(135deg, var(--brand-3), #3a94f2);
+transform: translateY(-2px);
+}
+
+/* ─── HOMEPAGE SECTIONS ─────────────────────────────────────────────────────── */
+.home-hero {
+background: radial-gradient(1000px 500px at -10% 0%, #e7f2ff 0%, transparent 55%),
+radial-gradient(900px 500px at 110% 0%, #f0f7ff 0%, transparent 60%),
+linear-gradient(120deg, #F0F7FF 60%, #e2eafc 100%);
+padding: 2.2rem 0 3rem;
+}
+.home-title {
+text-align: center;
+color: var(--brand-2);
+margin-bottom: .6rem;
+letter-spacing: .2px;
+font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.2rem);
+font-weight: 800;
+}
+.intro-card {
+font-size: 1.06rem;
+color: #2a4365;
+padding: .95rem 1.25rem;
+background: linear-gradient(180deg, #e9f3ff 0%, #e2eafc 100%);
+border-radius: var(--r-md);
+text-align: center;
+margin-bottom: 1.2rem;
+box-shadow: 0 4px 14px rgba(105,174,216,0.12);
+border: var(--border);
+}
+#aqi-section ul { list-style: none; padding-left: 0; margin-bottom: 0; }
+#aqi-section li { margin: .38rem 0; font-size: 1.03rem; }
+
+.custom-list { margin-left: 1.1rem; list-style: disc; color: #314461; line-height: 1.85; }
+.fast-facts, .contact-help { background: #edfbf6; border: var(--border); }
+
+/* ─── UTILITIES ─────────────────────────────────────────────────────────────── */
+.shadow-sm { box-shadow: 0 3px 10px rgba(0,0,0,.06); }
+.rounded { border-radius: var(--r-md); }
+.hidden { display: none !important; }
+
+/* ─── SCROLLBARS (modern) ───────────────────────────────────────────────────── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #b9d5ff #f0f6ff;
+}
+
+*::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: #f0f6ff;
+}
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c6ddff, #a6c9ff);
+  border-radius: 20px;
+}
+
+
+/* ─── RESPONSIVE TWEAKS ─────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+.top-nav { padding: .75rem 1rem; }
+.nav-links { gap: .6rem; }
+.content-wrapper { margin: 1.25rem; padding: 1.1rem; }
+}
+
+@media (max-width: 500px) {
+.home-title { font-size: 1.35rem; }
+.intro-card, .home-card { font-size: 1.02rem !important; }
+button.btn.primary { width: 100%; padding: .9rem; font-size: 1.05rem; }
+}
+/* Visibility + contrast for buttons */
+.btn,
+button {
+color: #fff !important;
+}
+.btn.primary,
+button.btn.primary {
+background: linear-gradient(135deg, #1565c0, #0e58a3) !important;
+color: #ffffff !important;
+border: 1px solid rgba(8, 26, 47, 0.2) !important;
+text-shadow: 0 1px 0 rgba(0,0,0,0.25);
+}
+.btn.primary:hover,
+button.btn.primary:hover {
+filter: brightness(1.05);
+}
+.btn.ghost {
+background: #ffffff !important;
+color: #1565c0 !important;
+border: 1px solid rgba(21,101,192,0.35) !important;
+}
+.btn:disabled,
+button:disabled {
+opacity: .7;
+filter: grayscale(.1);
+}
+
+/* Make buttons stand out on dark or image areas */
+.top-nav .btn,
+.login-wrapper .btn {
+box-shadow: 0 8px 22px rgba(0,0,0,.18);
+}
+
+/* Spread content wider across page */
+.container,
+.content-wrapper {
+max-width: 1140px !important; /* was 880–980 */
+width: 100%;
+margin-inline: auto;
+padding-inline: clamp(16px, 4vw, 32px);
+}
+
+/* Cards less narrow, better spacing */
+.card,
+.home-card,
+.health-card {
+margin-bottom: 1.25rem;
+}
+
+/* Fix hidden buttons inside form footers or flex rows */
+.form-actions,
+.actions,
+.button-row {
+display: flex;
+gap: 12px;
+flex-wrap: wrap;
+}
+.form-actions .btn,
+.actions .btn,
+.button-row .btn {
+min-width: 140px;
+}
+
+/* Improve contrast of risk badges on light backgrounds */
+.status-good { color: #f7fff7; }
+.status-warning{ color: #2b1300; text-shadow: 0 1px 0 rgba(255,255,255,.35); }
+.status-danger { color: #fff; }
+
+/* Ensure nav links remain readable on active/hover */
+.nav-links a.active,
+.nav-links a:hover {
+color: #081a2f !important;
+background: rgba(255,255,255,.9) !important;
+}
+
+/* Login page: ensure the primary submit stands out */
+.login-wrapper .auth-form .btn.primary {
+background: linear-gradient(135deg, #1565c0, #3a94f2) !important;
+}
+
+/* Optional: make page use more vertical space on large screens */
+@media (min-width: 1200px) {
+body { font-size: 17px; }
+}
+
+/* If any button sits on light gray cards, add outline for visibility */
+.card .btn.primary,
+.health-card .btn.primary {
+box-shadow: 0 10px 24px rgba(21,101,192,.25), 0 0 0 1px rgba(8,26,47,.05);
+}
+/* Make "Sync Wearable Data" clearly visible */
+#sync-wearable,
+button#sync-wearable,
+.sync-wearable,
+button.sync-wearable,
+[data-role="sync-wearable"] {
+/* solid contrasting style */
+background: #ffffff !important;
+color: #1565c0 !important;
+border: 1px solid rgba(21,101,192,0.45) !important;
+border-radius: 10px;
+font-weight: 700;
+text-shadow: none !important;
+box-shadow: 0 8px 20px rgba(21,101,192,0.12);
+}
+
+/* If it’s meant to be a subtle/secondary button */
+#sync-wearable.btn,
+.sync-wearable.btn,
+.button-sync {
+background: rgba(255,255,255,0.92) !important;
+}
+
+/* Ensure label text never goes transparent */
+#sync-wearable,
+.sync-wearable {
+-webkit-text-fill-color: currentColor;
+}
+
+/* Hover/active states for clarity */
+#sync-wearable:hover,
+.sync-wearable:hover {
+background: #f7fbff !important;
+filter: none;
+}
+#sync-wearable:active,
+.sync-wearable:active {
+transform: translateY(0);
+}
+
+/* In case it sits on a light card, add outline for contrast */
+.card #sync-wearable,
+.health-card #sync-wearable {
+box-shadow: 0 0 0 1px rgba(8,26,47,0.06), 0 8px 18px rgba(0,0,0,0.06);
+}
+/* Make auth panel fully readable */
+.login-wrapper {
+background: #ffffff !important; / solid white */
+backdrop-filter: none !important;
+border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Toggle track and button text colors */
+.toggle-switch {
+background: #e9eef8 !important; /* light track */
+border: 1px solid rgba(0,0,0,0.08);
+}
+.toggle-btn {
+color: #0A2342 !important; /* dark text when inactive */
+z-index: 2; / sit above slider /
+}
+/* active label stays white on the colored slider */
+.toggle-btn.active { color: #ffffff !important; }
+
+/* Ensure slider sits behind labels and is visible */
+.slider {
+z-index: 1; /* below labels */
+background: linear-gradient(135deg, #1565c0, #3a94f2) !important;
+box-shadow: 0 8px 20px rgba(21,101,192,.25);
+}
+
+/* Form inputs readable on white */
+.auth-form input[type="text"],
+.auth-form input[type="email"],
+.auth-form input[type="password"],
+.auth-form input[type="number"] {
+background: #ffffff !important;
+color: #0A2342 !important;
+}
+
+/* Primary submit button highly visible */
+.login-wrapper .auth-form .btn.primary {
+background: linear-gradient(135deg, #1565c0, #3a94f2) !important;
+color: #fff !important;
+}
+
+/* In case the whole page looked too dark/blurred */
+.login-page .login-background {
+opacity: 0.15 !important;
+filter: blur(4px) !important;
+}

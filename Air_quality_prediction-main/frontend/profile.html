@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile - AirHealth</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="logo">AirHealth</div>
+    <ul class="nav-links">
+      <li><a href="dashboard.html">Risk Assessment</a></li>
+      <li><a href="chatbot.html">Home</a></li>
+      <li><a href="profile.html" class="active">Profile</a></li>
+      <li><a href="#" id="logout-btn">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container content-wrapper">
+    <h1>My Profile</h1>
+
+    <form id="profile-form">
+      <label for="pName">Full Name</label>
+      <input type="text" id="pName" required />
+
+      <label for="pEmail">Email</label>
+      <input type="email" id="pEmail" disabled />
+
+      <label for="pGender">Gender</label>
+      <select id="pGender" required>
+        <option value="">Select</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="pLocation">Location</label>
+      <input type="text" id="pLocation" required />
+
+      <label for="pAge">Age</label>
+      <input type="number" id="pAge" min="1" max="120" required />
+
+      <label for="pChronicResp">Chronic Respiratory Disease</label>
+      <select id="pChronicResp" required>
+        <option value="">Select</option>
+        <option value="asthma">Asthma</option>
+        <option value="bronchitis">Bronchitis</option>
+        <option value="copd">COPD</option>
+        <option value="none">None</option>
+      </select>
+
+      <label for="pHeartDisease">Diagnosed Heart Disease</label>
+      <select id="pHeartDisease" required>
+        <option value="">Select</option>
+        <option value="cad">Coronary Artery Disease</option>
+        <option value="arrhythmias">Arrhythmias</option>
+        <option value="none">None</option>
+      </select>
+
+      <label for="pSmoking">Smoking Status</label>
+      <select id="pSmoking" required>
+        <option value="">Select</option>
+        <option value="never">Never</option>
+        <option value="former">Former</option>
+        <option value="regular">Regular</option>
+        <option value="occasional">Occasional</option>
+      </select>
+
+      <button type="submit" class="btn primary" style="margin-top:1rem;">Save Changes</button>
+    </form>
+  </div>
+
+  <script src="assets/js/profile.js"></script>
+  <script>
+    // Logout button handler
+    document.getElementById('logout-btn').addEventListener('click', () => {
+      localStorage.removeItem('airhealthUser');
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

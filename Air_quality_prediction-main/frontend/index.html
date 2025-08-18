@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AirHealth - Login</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body class="login-page">
+
+  <div class="login-background"></div>
+  <div class="login-wrapper">
+    <div class="brand">
+      <h1>AirHealth Portal</h1>
+    </div>
+
+    <div class="toggle-switch">
+      <button id="signin-toggle" class="toggle-btn active" onclick="showSignin()">Sign In</button>
+      <button id="signup-toggle" class="toggle-btn" onclick="showSignup()">Sign Up</button>
+      <div class="slider"></div>
+    </div>
+
+    <!-- Sign In Form -->
+    <form id="signin-form" class="auth-form" style="display:grid;">
+      <label for="signin-email">Email</label>
+      <input type="email" id="signin-email" required />
+
+      <label for="signin-password">Password</label>
+      <input type="password" id="signin-password" required />
+
+      <button type="submit" class="btn primary">Sign In</button>
+    </form>
+
+    <!-- Sign Up Form -->
+    <form id="signup-form" class="auth-form" style="display:none;">
+      <label for="signup-email">Email</label>
+      <input type="email" id="signup-email" required />
+
+      <label for="signup-password">Password</label>
+      <input type="password" id="signup-password" required />
+
+      <label for="signup-confirm-password">Confirm Password</label>
+      <input type="password" id="signup-confirm-password" required />
+
+      <label for="signup-name">Full Name</label>
+      <input type="text" id="signup-name" required />
+
+      <label for="signup-gender">Gender</label>
+      <select id="signup-gender" required>
+        <option value="">Select</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label for="location">Location</label>
+      <input type="text" id="location" required />
+
+      <label for="signup-age">Age</label>
+      <input type="number" id="signup-age" min="1" max="120" required />
+
+      <label for="respiratory">Do you have a chronic respiratory disease?</label>
+      <select id="respiratory" required>
+        <option value="">Select</option>
+        <option value="asthma">Asthma</option>
+        <option value="bronchitis">Bronchitis</option>
+        <option value="copd">COPD</option>
+        <option value="none">None</option>
+      </select>
+
+      <label for="heart">Do you have any diagnosed heart diseases?</label>
+      <select id="heart" required>
+        <option value="">Select</option>
+        <option value="cad">Coronary Artery Disease</option>
+        <option value="arrhythmias">Arrhythmias</option>
+        <option value="none">None</option>
+      </select>
+
+      <label for="smoking">Smoking Status</label>
+      <select id="smoking" required>
+        <option value="">Select</option>
+        <option value="never">Never</option>
+        <option value="former">Former</option>
+        <option value="regular">Regular</option>
+        <option value="occasional">Occasional</option>
+      </select>
+
+      <div style="font-size:.95rem;color:#555;text-align:center;margin:.5rem 0 1rem;">
+        You can update these details later on your <b>personal page</b>.
+      </div>
+
+      <button type="submit" class="btn primary">Sign Up</button>
+    </form>
+  </div>
+
+  <!-- Include your auth.js script -->
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>
